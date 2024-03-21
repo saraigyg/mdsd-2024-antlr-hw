@@ -16,7 +16,7 @@ public class StateModelRunner {
 
     private static final Path inputPath = Paths.get("src", "statemodel", "input.state");
 
-    public static StateModelParser.ModelContext readModel(String source) {
+    public static void readModel(String source) {
         var lexer = new StateModelLexer(CharStreams.fromString(source));
         lexer.removeErrorListeners();
         lexer.addErrorListener(exceptionHandler);
@@ -25,7 +25,7 @@ public class StateModelRunner {
         parser.removeErrorListeners();
         parser.addErrorListener(exceptionHandler);
 
-        return parser.model();
+        parser.model();
     }
 
     public static void main(String[] args) throws IOException {
